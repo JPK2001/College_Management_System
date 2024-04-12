@@ -1,0 +1,152 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <style>
+        .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.jumbotron {
+    background-color: #f8f9fa; /* Couleur de fond */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da; /* Bordure grise */
+}
+
+textarea.form-control {
+    resize: vertical; /* Permettre le redimensionnement vertical */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Couleur de fond du bouton */
+    border-color: #007bff; /* Couleur de la bordure du bouton */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+    border-color: #0056b3; /* Couleur de la bordure au survol */
+}
+button {
+ appearance: none;
+ background-color: transparent;
+ border: 0.125em solid #1A1A1A;
+ border-radius: 0.9375em;
+ box-sizing: border-box;
+ color: #3B3B3B;
+ cursor: pointer;
+ display: inline-block;
+ font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+ font-size: 16px;
+ font-weight: 600;
+ line-height: normal;
+ margin: 0;
+ min-height: 3.75em;
+ min-width: 0;
+ outline: none;
+ padding: 1em 2.3em;
+ text-align: center;
+ text-decoration: none;
+ transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+ will-change: transform;
+}
+
+button:disabled {
+ pointer-events: none;
+}
+
+button:hover {
+ color: #fff;
+ background-color: #1A1A1A;
+ box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+ transform: translateY(-2px);
+}
+
+button:active {
+ box-shadow: none;
+ transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+    <button><a href="/" class="btn btn-outline-primary my-1 mx-2">Go Back To Home Page</a></button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button><a class="form-control mr-sm-2" type="login" placeholder="Login" aria-label="Login" href="/login">Login</a></button>
+            <button><a class="form-control mr-sm-2" type="Register" placeholder="Register" aria-label="Register" href="/registration">Register</a></button>
+        </form>
+    </div>
+</nav>
+
+<!-- Hero Image -->
+<div class="container-fluid px-0">
+    <img src="{% static 'dist/img/contact.jpg' %}" class="d-block w-100 mx-0" alt="Contact" height="450px">
+</div>
+
+<!-- Contact Form -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-center mb-4">Contact Us</h1>
+        <form action="/contact" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter your Phone number">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="5" name="message" placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
